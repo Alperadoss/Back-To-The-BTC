@@ -1,4 +1,9 @@
 import { useState } from "react";
+import StartScreen from "./StartScreen";
+import StockMarket from "./StockMarket";
+import Mining from "./Mining";
+import GameStats from "./GameStats";
+
 import "./App.css";
 
 function App() {
