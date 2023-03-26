@@ -1,16 +1,21 @@
-import { useState } from "react";
-import StartScreen from "./StartScreen";
-import StockMarket from "./StockMarket";
-import Mining from "./Mining";
-import GameStats from "./GameStats";
-
+//import { useState } from "react";
+import StartScreen from "./components/StartScreen";
+import GameScreen from "./components/GameScreen";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+//import StockMarket from "./components/StockMarket";
+//import Mining from "./components/Mining";
+import GameStats from "./components/GameStats";
 import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Loading...</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route exact path="/" index element={<StartScreen />} />
+        <Route path="/game" element={<GameScreen />} />
+        <Route path="/stats" element={<GameStats />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
