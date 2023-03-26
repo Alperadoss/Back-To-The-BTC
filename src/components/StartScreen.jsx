@@ -1,11 +1,15 @@
 import React from "react";
+import gamelogo from "../assets/gamelogo.png";
+import movieposter from "../assets/movieposter.jpeg";
 
 export default function StartScreen() {
   return (
-    <div className="firstpage">
-      <h1>Back To BTC</h1>
-      <h2>a game about second chances</h2>
-      <a href="/game">start the game</a>
+    <div className="flexcont">
+      <img src={gamelogo} />
+      <a className="button" href="/game">
+        start the game
+      </a>
+      <img src={movieposter} />
     </div>
   );
 }

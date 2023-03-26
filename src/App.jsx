@@ -1,9 +1,8 @@
+import React from "react";
 //import { useState } from "react";
 import StartScreen from "./components/StartScreen";
 import GameScreen from "./components/GameScreen";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-//import StockMarket from "./components/StockMarket";
-//import Mining from "./components/Mining";
 import GameStats from "./components/GameStats";
 import "./App.css";
 
