@@ -7,6 +7,13 @@ import GameStats from "./components/GameStats";
 import "./App.css";
 
 function App() {
+  let gameData = {
+    totalBTC: null,
+    totalUSD: null,
+    MinedBTCperMonth: null,
+    currentDate: null,
+  };
+
   return (
     <BrowserRouter>
       <Routes>

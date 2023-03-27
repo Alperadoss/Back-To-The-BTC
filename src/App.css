@@ -40,14 +40,15 @@ body {
   justify-content: space-evenly;
   align-items: flex-start;
   padding-top: 10rem;
-  background-color: rgb(20, 66, 114);
+  background-color: rgb(176, 222, 229);
   padding-bottom: 15rem;
   font-family: sans-serif;
 }
 
 .mineboard {
-  background-color: rgb(44, 116, 179);
+  background-color: rgb(244, 147, 102);
   width: 15rem;
+  min-width: 17rem;
   height: 20rem;
   border: 6px solid rgb(32, 82, 149);
   border-radius: 2rem;
@@ -62,9 +63,33 @@ body {
 }
 
 .upgrades {
-  background-color: rgb(44, 116, 179);
+  background-color: rgb(249, 230, 159);
   width: 35rem;
   height: 25rem;
   border: 6px solid rgb(32, 82, 149);
   border-radius: 2rem;
+}
+
+/* Stopwatch Style */
+.stopwatch-time {
+  text-align: center;
+  color: #fff;
+  font-size: 18px;
+}
+
+.stopwatch-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.stopwatch-buttons button {
+  margin: 10px;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.stopwatch-buttons button:last-child {
+  background-color: red;
 }
