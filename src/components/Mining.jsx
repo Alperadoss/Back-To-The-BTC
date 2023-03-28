@@ -9,9 +9,6 @@ export default function Mining() {
       <p>Currently mining...</p>
       <p> 15 BTC/month</p>
       <p>Total: 25 BTC</p>
-      <br />
-      <p>Cash Money</p>
-      <p>16.000 USD </p>
     </div>
   );
 }

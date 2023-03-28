@@ -6,6 +6,10 @@
 body {
   background-color: rgb(45, 45, 46);
 }
+
+h1 {
+  text-align: center;
+}
 /*StartScreen Style*/
 .flexcont {
   display: flex;
@@ -43,7 +47,6 @@ body {
   background-color: rgb(176, 222, 229);
   padding-bottom: 15rem;
   font-family: sans-serif;
-  text-align: center;
 }
 
 .mineboard {
@@ -61,6 +64,7 @@ body {
   height: 25rem;
   border: 6px solid rgb(32, 82, 149);
   border-radius: 2rem;
+  padding: 1rem;
 }
 
 .upgrades {
@@ -69,6 +73,7 @@ body {
   height: 25rem;
   border: 6px solid rgb(32, 82, 149);
   border-radius: 2rem;
+  padding: 1rem;
 }
 
 /* Stopwatch Style */
