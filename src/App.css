@@ -89,13 +89,11 @@ h1 {
 }
 
 .stopwatch-buttons button {
-  margin: 10px;
+  margin: 6px;
   border: none;
-  padding: 10px 20px;
+  padding: 10px 25px;
+  border-radius: 16px;
   cursor: pointer;
   color: #fff;
-}
-
-.stopwatch-buttons button:last-child {
   background-color: red;
 }

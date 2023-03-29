@@ -1,6 +1,12 @@
 import React from "react";
 
-export default function StockMarket() {
+export default function StockMarket({ usdbalance, setUsdbalance }) {
+  function handleSubmit(event) {
+    event.preventDefault();
+    setUsdbalance(SELLBTC);
+    console.log("i work");
+  }
+
   return (
     <div className="stockmarket">
       <h1>Stock Market</h1>
@@ -10,7 +16,7 @@ export default function StockMarket() {
           <label>
             BTC: <input type="number" name="btcAmount" />
           </label>
-          <input type="submit" value="SELL BTC" />
+          <input onClick={handleSubmit} type="submit" value="SELLBTC" />
         </form>
       </div>
       <br></br>
@@ -24,8 +30,8 @@ export default function StockMarket() {
       </div>
       <br></br>
       <br></br>
-      <p>USD Balance: 4700 USD</p>
-      <p>BTC Balance: 8 BTC</p>
+      <p>USD Balance: {usdbalance} USD</p>
+      <p>BTC Balance: BTC</p>
     </div>
   );
 }
