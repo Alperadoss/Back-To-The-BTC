@@ -1,37 +1,35 @@
 import React from "react";
 
-export default function StockMarket({ usdbalance, setUsdbalance }) {
-  function handleSubmit(event) {
+export default function StockMarket(props) {
+  function handleBTCSubmit(event) {
     event.preventDefault();
-    setUsdbalance(SELLBTC);
-    console.log("i work");
+    props.setUsdbalance(event.target[0].value);
+    //let newUsd = props.usdbalance;
   }
 
   return (
     <div className="stockmarket">
       <h1>Stock Market</h1>
       <h3>Rate: 1230 USD/BTC</h3>
+
       <div className="buysell">
-        <form>
-          <label>
-            BTC: <input type="number" name="btcAmount" />
-          </label>
-          <input onClick={handleSubmit} type="submit" value="SELLBTC" />
+        <form onSubmit={handleBTCSubmit}>
+          BTC: <input type="number" name="btcamount"></input>
+          <button type="submit">SELL BTC</button>
         </form>
       </div>
       <br></br>
+
       <div className="buysell">
-        <form>
-          <label>
-            USD: <input type="number" name="btcAmount" />
-          </label>
-          <input type="submit" value="BUY BTC" />
+        <form onSubmit={handleBTCSubmit}>
+          USD: <input type="number" name="usdamount"></input>
+          <button type="submit">SELL USD</button>
         </form>
       </div>
       <br></br>
       <br></br>
-      <p>USD Balance: {usdbalance} USD</p>
-      <p>BTC Balance: BTC</p>
+      <p>USD Balance: {props.usdbalance} USD</p>
+      <p>BTC Balance: {props.btcbalance} BTC</p>
     </div>
   );
 }
