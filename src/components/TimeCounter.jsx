@@ -12,10 +12,9 @@ const TimeCounter = (props) => {
     }
 
     function secCounter() {
-      let miningPower = 1;
-      //let oldbalance = props.btcbalance;
-      //props.setBtcbalance(oldbalance + miningPower);
-      props.setBtcbalance(props.btcbalance + miningPower);
+      props.setBtcbalance(
+        Math.round((props.btcbalance + props.miningPower) * 100) / 100
+      );
     }
 
     if (props.isRunning) {

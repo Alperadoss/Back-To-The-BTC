@@ -5,9 +5,9 @@ import Upgrades from "./Upgrades";
 
 export default function GameScreen() {
   const [usdbalance, setUsdbalance] = useState(500);
-  const [btcbalance, setBtcbalance] = useState(10);
+  const [btcbalance, setBtcbalance] = useState(0);
   const [btcUsdRatio, SetBtcUsdRatio] = useState(1230);
-  const [miningPower, setMiningPower] = useState(1);
+  const [miningPower, setMiningPower] = useState(0.01);
   // state to check stopwatch running or not
   const [isRunning, setIsRunning] = useState(false);
 
@@ -20,6 +20,7 @@ export default function GameScreen() {
           setBtcbalance={setBtcbalance}
           isRunning={isRunning}
           setIsRunning={setIsRunning}
+          miningPower={miningPower}
         />
         <p>Currently mining...</p>
       </div>

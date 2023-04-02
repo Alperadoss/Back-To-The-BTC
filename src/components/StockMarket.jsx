@@ -16,8 +16,10 @@ export default function StockMarket(props) {
     let earlierUSD = props.usdbalance;
     let earlierBTC = props.btcbalance;
     if (props.btcbalance >= formAmount) {
-      props.setUsdbalance(earlierUSD + props.btcUsdRatio * formAmount);
-      props.setBtcbalance(earlierBTC - formAmount);
+      props.setUsdbalance(
+        Math.round((earlierUSD + props.btcUsdRatio * formAmount) * 1000) / 1000
+      );
+      props.setBtcbalance(Math.round((earlierBTC - formAmount) * 1000) / 1000);
     }
     event.target[0].value = "";
     setTimeout(Player, 300);
