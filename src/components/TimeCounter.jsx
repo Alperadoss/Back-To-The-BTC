@@ -1,29 +1,41 @@
 import React, { useState, useEffect } from "react";
 
-const Stopwatch = () => {
+const TimeCounter = (props) => {
   // state to store time
   const [time, setTime] = useState(0);
 
-  // state to check stopwatch running or not
-  const [isRunning, setIsRunning] = useState(false);
-
   useEffect(() => {
     let intervalId;
-    if (isRunning) {
+    //Calendar and miningpower functions use same setInterval
+    function timeFunc() {
+      setTime(time + 1);
+    }
+
+    function secCounter() {
+      let miningPower = 1;
+      //let oldbalance = props.btcbalance;
+      //props.setBtcbalance(oldbalance + miningPower);
+      props.setBtcbalance(props.btcbalance + miningPower);
+    }
+
+    if (props.isRunning) {
       // setting time from 0 to 1 every 10 ms using JS setInterval method
-      intervalId = setInterval(() => setTime(time + 1), 10);
+      intervalId = setInterval(function () {
+        timeFunc();
+        secCounter();
+      }, 500);
     }
     return () => clearInterval(intervalId);
-  }, [isRunning, time]);
+  }, [props.isRunning, time]);
 
   //simulated time calculation
-  const day = 1 + Math.floor((time % 1500) / 50);
-  const month = 1 + Math.floor((time % 18000) / 1500);
-  const year = 2012 + Math.floor(time / 18000);
+  const day = 1 + Math.floor(time % 30);
+  const month = 1 + Math.floor((time % 360) / 30);
+  const year = 2012 + Math.floor(time / 360);
 
-  // Method to start and stop timer
+  // Method to start and pause timer
   const startAndStop = () => {
-    setIsRunning(!isRunning);
+    props.setIsRunning(!props.isRunning);
   };
 
   return (
@@ -35,11 +47,11 @@ const Stopwatch = () => {
       </p>
       <div className="stopwatch-buttons">
         <button className="stopwatch-button" onClick={startAndStop}>
-          {isRunning ? "Pause" : "Start"}
+          {props.isRunning ? "Pause" : "Start"}
         </button>
       </div>
     </div>
   );
 };
 
-export default Stopwatch;
+export default TimeCounter;

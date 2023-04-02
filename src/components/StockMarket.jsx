@@ -1,9 +1,17 @@
 import React from "react";
 
 export default function StockMarket(props) {
+  //pauser to prevent conflict with timecounter component
+  function Pauser() {
+    props.setIsRunning(false);
+  }
+  function Player() {
+    props.setIsRunning(true);
+  }
+
   function handleBTCSubmit(event) {
     event.preventDefault();
-
+    Pauser();
     let formAmount = event.target[0].value;
     let earlierUSD = props.usdbalance;
     let earlierBTC = props.btcbalance;
@@ -12,10 +20,12 @@ export default function StockMarket(props) {
       props.setBtcbalance(earlierBTC - formAmount);
     }
     event.target[0].value = "";
+    setTimeout(Player, 300);
   }
 
   function handleUSDSubmit(event) {
     event.preventDefault();
+    Pauser();
 
     let formAmount = event.target[0].value;
     let earlierUSD = props.usdbalance;
@@ -25,6 +35,7 @@ export default function StockMarket(props) {
       props.setUsdbalance(earlierUSD - formAmount);
     }
     event.target[0].value = "";
+    setTimeout(Player, 300);
   }
 
   return (
