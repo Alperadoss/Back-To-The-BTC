@@ -8,6 +8,7 @@ let initialList = [
     price: 100,
     power: 0.01,
     owned: 1,
+    unlocked: true,
   },
   {
     id: "02",
@@ -16,6 +17,7 @@ let initialList = [
     price: 200,
     power: 0.05,
     owned: 0,
+    unlocked: false,
   },
   {
     id: "03",
@@ -24,6 +26,7 @@ let initialList = [
     price: 300,
     power: 0.07,
     owned: 0,
+    unlocked: false,
   },
   {
     id: "04",
@@ -32,6 +35,7 @@ let initialList = [
     price: 1000,
     power: 1,
     owned: 0,
+    unlocked: false,
   },
   {
     id: "05",
@@ -40,6 +44,7 @@ let initialList = [
     price: 1200,
     power: 1,
     owned: 0,
+    unlocked: false,
   },
   {
     id: "06",
@@ -48,6 +53,7 @@ let initialList = [
     price: 100000,
     power: 5,
     owned: 0,
+    unlocked: false,
   },
   {
     id: "07",
@@ -56,22 +62,23 @@ let initialList = [
     price: 10000000,
     power: 100,
     owned: 0,
+    unlocked: false,
   },
 ];
 
 export default function Upgrades(props) {
   const [upgradeList, setUpgradeList] = useState(initialList);
 
-  let tempList = upgradeList;
-  let ownedItems = tempList.filter((item) => item.owned == true);
+  //let ownedItems = upgradeList.filter((item) => item.owned == true);
 
   //Upgrade Purchase Function
   function buyUpgrade(itemIndex) {
     let newList = upgradeList;
     // check if USD balance is enough
     if (props.usdbalance >= newList[itemIndex].price) {
-      //update the list
+      //unlock next upgrade item / update the list
       newList[itemIndex].owned += 1;
+      newList[itemIndex + 1].unlocked = true;
       setUpgradeList(newList);
       //take price from balance
       let tempBalance = props.usdbalance;
@@ -87,19 +94,22 @@ export default function Upgrades(props) {
     <div className="upgrades">
       <ul>
         <h1>Upgrades</h1>
-        {upgradeList.slice(0, ownedItems.length + 1).map((item) => (
-          <li key={item.id}>
-            <div className="itemheader">{item.name}</div>
-            <div className="iteminfo">{item.info}</div>
-            <div>You have {item.owned} of this item</div>
-            <button
-              type="submit"
-              onClick={() => buyUpgrade(upgradeList.indexOf(item))}
-            >
-              Buy
-            </button>
-          </li>
-        ))}
+
+        {upgradeList
+          .filter((item) => item.unlocked === true)
+          .map((item) => (
+            <li key={item.id}>
+              <div className="itemheader">{item.name}</div>
+              <div className="iteminfo">{item.info}</div>
+              <div>You have {item.owned} of this item</div>
+              <button
+                type="submit"
+                onClick={() => buyUpgrade(upgradeList.indexOf(item))}
+              >
+                Buy
+              </button>
+            </li>
+          ))}
       </ul>
     </div>
   );

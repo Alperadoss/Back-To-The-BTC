@@ -4,7 +4,7 @@ import StockMarket from "./StockMarket";
 import Upgrades from "./Upgrades";
 
 export default function GameScreen() {
-  const [usdbalance, setUsdbalance] = useState(500);
+  const [usdbalance, setUsdbalance] = useState(2500);
   const [btcbalance, setBtcbalance] = useState(0);
   const [btcUsdRatio, SetBtcUsdRatio] = useState(1230);
   const [miningPower, setMiningPower] = useState(0.01);
