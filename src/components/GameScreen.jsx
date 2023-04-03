@@ -8,7 +8,7 @@ export default function GameScreen() {
   const [btcbalance, setBtcbalance] = useState(0);
   const [btcUsdRatio, SetBtcUsdRatio] = useState(1230);
   const [miningPower, setMiningPower] = useState(0.01);
-  // state to check stopwatch running or not
+  // state to check timeCounter running or not
   const [isRunning, setIsRunning] = useState(false);
 
   return (
@@ -24,7 +24,12 @@ export default function GameScreen() {
         />
         <p>Currently mining...</p>
       </div>
-      <Upgrades />
+      <Upgrades
+        usdbalance={usdbalance}
+        setUsdbalance={setUsdbalance}
+        setMiningPower={setMiningPower}
+        miningPower={miningPower}
+      />
       <StockMarket
         usdbalance={usdbalance}
         setUsdbalance={setUsdbalance}
