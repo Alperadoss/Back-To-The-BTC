@@ -9,6 +9,7 @@ export default function StockMarket(props) {
     props.setIsRunning(true);
   }
 
+  // BTC sell - USD buy Functionality
   function handleBTCSubmit(event) {
     event.preventDefault();
     Pauser();
@@ -25,6 +26,7 @@ export default function StockMarket(props) {
     setTimeout(Player, 300);
   }
 
+  // USD sell - BTC buy Functionality
   function handleUSDSubmit(event) {
     event.preventDefault();
     Pauser();
@@ -39,11 +41,19 @@ export default function StockMarket(props) {
     event.target[0].value = "";
     setTimeout(Player, 300);
   }
+  //Exchange Rate Update Functionality
+  const exchangeRateData = [
+    4.9, 6.7, 12.4, 13.5, 33, 130, 120, 190, 700, 500, 600, 320, 240, 280, 420,
+    400, 440, 600, 650, 720, 1200, 2100, 4700, 13000, 9000, 7000, 6000, 4000,
+    3800, 10000, 8300, 7000, 6600, 9400, 11500, 28000, 45000, 58000, 47000,
+    61000, 43000, 32000, 20000, 18000,
+  ];
+  props.setBtcUsdRatio(exchangeRateData[props.term]);
 
   return (
     <div className="stockmarket">
       <h1>Stock Market</h1>
-      <h3>Rate: {props.btcUsdRatio} USD/BTC</h3>
+      <h3>Exchange Rate: {props.btcUsdRatio} USD/BTC</h3>
 
       <div className="buysell">
         <form onSubmit={handleBTCSubmit}>

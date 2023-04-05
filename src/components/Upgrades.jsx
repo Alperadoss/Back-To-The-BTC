@@ -92,9 +92,8 @@ export default function Upgrades(props) {
 
   return (
     <div className="upgrades">
+      <h1>Upgrades</h1>
       <ul>
-        <h1>Upgrades</h1>
-
         {upgradeList
           .filter((item) => item.unlocked === true)
           .map((item) => (

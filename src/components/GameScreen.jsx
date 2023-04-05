@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import StockMarket from "./StockMarket";
 import Upgrades from "./Upgrades";
+//import ExchangeRater from "./ExchangeRater";
+//import { exchangeRateData } from "./exchangeRateData";
 
 export default function GameScreen() {
   const [usdbalance, setUsdbalance] = useState(2500);
   const [btcbalance, setBtcbalance] = useState(0);
-  const [btcUsdRatio, SetBtcUsdRatio] = useState(1230);
+  const [btcUsdRatio, setBtcUsdRatio] = useState(4.9);
   const [miningPower, setMiningPower] = useState(0.01);
-  const [isRunning, setIsRunning] = useState(false);
+  const [isRunning, setIsRunning] = useState(true);
   const [time, setTime] = useState(0);
 
   //--- TimeCounter Functionalities ---
@@ -26,7 +28,7 @@ export default function GameScreen() {
       intervalId = setInterval(function () {
         timeFunc();
         secCounter();
-      }, 500);
+      }, 300);
     }
     return () => clearInterval(intervalId);
   }, [isRunning, time]);
@@ -35,19 +37,22 @@ export default function GameScreen() {
   const day = 1 + Math.floor(time % 30);
   const month = 1 + Math.floor((time % 360) / 30);
   const year = 2012 + Math.floor(time / 360);
+  const term = Math.floor(time / 90);
+
+  //Exchange rate update functionality
+  //setBtcUsdRatio(exchangeRateData[term]);
 
   // Method to start and pause timer
   const startAndStop = () => {
     setIsRunning(!isRunning);
   };
-  ///////
+
   return (
     <div className="gamepage">
-      <div className="mineboard">
+      <div className="statsboard">
         <div className="stopwatch-container">
           <p className="stopwatch-time">
-            year:{year.toString()} / month:{month.toString().padStart(2, "0")} /
-            day:
+            {year.toString()} / {month.toString().padStart(2, "0")} /{" "}
             {day.toString().padStart(2, "0")}
           </p>
           <div className="stopwatch-buttons">
@@ -57,20 +62,21 @@ export default function GameScreen() {
           </div>
         </div>
       </div>
-      <Upgrades
-        usdbalance={usdbalance}
-        setUsdbalance={setUsdbalance}
-        setMiningPower={setMiningPower}
-        miningPower={miningPower}
-      />
       <StockMarket
         usdbalance={usdbalance}
         setUsdbalance={setUsdbalance}
         btcbalance={btcbalance}
         setBtcbalance={setBtcbalance}
         btcUsdRatio={btcUsdRatio}
-        isRunning={isRunning}
         setIsRunning={setIsRunning}
+        setBtcUsdRatio={setBtcUsdRatio}
+        term={term}
+      />
+      <Upgrades
+        usdbalance={usdbalance}
+        setUsdbalance={setUsdbalance}
+        setMiningPower={setMiningPower}
+        miningPower={miningPower}
       />
     </div>
   );
