@@ -1,14 +1,13 @@
 import React, { useState, useEffect, useMemo } from "react";
 import StockMarket from "./StockMarket";
 import Upgrades from "./Upgrades";
-//import ExchangeRater from "./ExchangeRater";
-//import { exchangeRateData } from "./exchangeRateData";
+import stockmarketdata from "../assets/stockmarketdata.png";
 
 export default function GameScreen() {
-  const [usdbalance, setUsdbalance] = useState(2500);
+  const [usdbalance, setUsdbalance] = useState(300);
   const [btcbalance, setBtcbalance] = useState(0);
   const [btcUsdRatio, setBtcUsdRatio] = useState(4.9);
-  const [miningPower, setMiningPower] = useState(0.01);
+  const [miningPower, setMiningPower] = useState(0.005);
   const [isRunning, setIsRunning] = useState(true);
   const [time, setTime] = useState(0);
 
@@ -21,7 +20,7 @@ export default function GameScreen() {
       setTime(time + 1);
     }
     function secCounter() {
-      setBtcbalance(Math.round((btcbalance + miningPower) * 100) / 100);
+      setBtcbalance(Math.round((btcbalance + miningPower) * 1000) / 1000);
     }
     if (isRunning) {
       // setting time from 0 to 1 every 500 ms
@@ -50,18 +49,15 @@ export default function GameScreen() {
   return (
     <div className="gamepage">
       <div className="statsboard">
-        <div className="stopwatch-container">
-          <p className="stopwatch-time">
-            {year.toString()} / {month.toString().padStart(2, "0")} /{" "}
-            {day.toString().padStart(2, "0")}
-          </p>
-          <div className="stopwatch-buttons">
-            <button className="stopwatch-button" onClick={startAndStop}>
-              {isRunning ? "Pause" : "Start"}
-            </button>
-          </div>
-        </div>
+        <p className="stopwatch-time">
+          {year.toString()} / {month.toString().padStart(2, "0")} /{" "}
+          {day.toString().padStart(2, "0")}
+        </p>
+        <button className="stopwatch-button" onClick={startAndStop}>
+          {isRunning ? "Pause" : "Start"}
+        </button>
       </div>
+      <img className="datatable" src={stockmarketdata}></img>
       <StockMarket
         usdbalance={usdbalance}
         setUsdbalance={setUsdbalance}

@@ -57,20 +57,23 @@ export default function StockMarket(props) {
 
       <div className="buysell">
         <form onSubmit={handleBTCSubmit}>
-          BTC: <input type="number" name="btcamount"></input>
-          <button type="submit">SELL BTC</button>
+          BTC:{" "}
+          <input className="inputbox" type="number" name="btcamount"></input>
+          <button className="stockbtn" type="submit">
+            SELL BTC
+          </button>
         </form>
       </div>
-      <br></br>
-
       <div className="buysell">
         <form onSubmit={handleUSDSubmit}>
-          USD: <input type="number" name="usdamount"></input>
-          <button type="submit">SELL USD</button>
+          USD:{" "}
+          <input className="inputbox" type="number" name="usdamount"></input>
+          <button className="stockbtn" type="submit">
+            SELL USD
+          </button>
         </form>
       </div>
-      <br></br>
-      <br></br>
+
       <p>USD Balance: {props.usdbalance} USD</p>
       <p>BTC Balance: {props.btcbalance} BTC</p>
     </div>

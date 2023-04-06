@@ -11,7 +11,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route exact path="/" index element={<StartScreen />} />
-        <Route path="/intro" element={Intro} />
+        <Route path="/intro" element={<Intro />} />
         <Route path="/game" element={<GameScreen />} />
         <Route path="/stats" element={<GameStats />} />
       </Routes>
