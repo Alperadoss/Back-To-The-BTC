@@ -1,7 +1,6 @@
 import React from "react";
 import StartScreen from "./components/StartScreen";
 import GameScreen from "./components/GameScreen";
-import GameStats from "./components/GameStats";
 import Intro from "./components/Intro";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
@@ -13,7 +12,6 @@ function App() {
         <Route exact path="/" index element={<StartScreen />} />
         <Route path="/intro" element={<Intro />} />
         <Route path="/game" element={<GameScreen />} />
-        <Route path="/stats" element={<GameStats />} />
       </Routes>
     </BrowserRouter>
   );

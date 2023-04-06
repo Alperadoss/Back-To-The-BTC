@@ -179,3 +179,16 @@ p {
 .barbckgrnd {
   width: 100%;
 }
+
+.endgame {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.endgame p {
+  font-family: "VT323", monospace;
+  font-size: 2rem;
+  margin: 1rem;
+}

@@ -38,9 +38,6 @@ export default function GameScreen() {
   const year = 2012 + Math.floor(time / 360);
   const term = Math.floor(time / 90);
 
-  //Exchange rate update functionality
-  //setBtcUsdRatio(exchangeRateData[term]);
-
   // Method to start and pause timer
   const startAndStop = () => {
     setIsRunning(!isRunning);

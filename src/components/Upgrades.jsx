@@ -49,8 +49,8 @@ let initialList = [
   {
     id: "06",
     name: "Crypto Trading Website",
-    info: "$100.000 - manipulate the market, earn more! (3x mining power)",
-    price: 100000,
+    info: "$400.000 - manipulate the market, earn more! (3x mining power)",
+    price: 400000,
     power: 3,
     owned: 0,
     unlocked: false,
