@@ -189,12 +189,7 @@ p {
   justify-content: flex-start;
   font-family: sans-serif;
 }
-@media only screen and (min-width: 768px) {
-  .gamepage {
-    flex-direction: row;
-    justify-content: space-evenly;
-  }
-}
+
 .statsboard {
   background-color: rgb(244, 147, 102);
   border: 6px solid rgb(32, 82, 149);
@@ -330,4 +325,27 @@ p {
   font-family: "VT323", monospace;
   font-size: 2rem;
   margin: 1rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .gamepage {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  #gamelogo {
+    max-width: 600px;
+  }
+  #deloreanlogo {
+    max-width: 300px;
+    margin-bottom: 3rem;
+  }
+  .barbckgrnd {
+    max-width: 800px;
+  }
+  .introScene {
+    align-items: center;
+  }
+  .textbox {
+    max-width: 700px;
+  }
 }
