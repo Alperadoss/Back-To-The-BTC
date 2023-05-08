@@ -45,26 +45,28 @@ export default function GameScreen() {
 
   return (
     <div className="gamepage">
-      <div className="statsboard">
-        <p className="stopwatch-time">
-          {year.toString()} / {month.toString().padStart(2, "0")} /{" "}
-          {day.toString().padStart(2, "0")}
-        </p>
-        <button className="stopwatch-button" onClick={startAndStop}>
-          {isRunning ? "Pause" : "Start"}
-        </button>
+      <div>
+        <div className="statsboard">
+          <p className="stopwatch-time">
+            {year.toString()} / {month.toString().padStart(2, "0")} /{" "}
+            {day.toString().padStart(2, "0")}
+          </p>
+          <button className="stopwatch-button" onClick={startAndStop}>
+            {isRunning ? "Pause" : "Start"}
+          </button>
+        </div>
+        <img className="datatable" src={stockmarketdata}></img>
+        <StockMarket
+          usdbalance={usdbalance}
+          setUsdbalance={setUsdbalance}
+          btcbalance={btcbalance}
+          setBtcbalance={setBtcbalance}
+          btcUsdRatio={btcUsdRatio}
+          setIsRunning={setIsRunning}
+          setBtcUsdRatio={setBtcUsdRatio}
+          term={term}
+        />
       </div>
-      <img className="datatable" src={stockmarketdata}></img>
-      <StockMarket
-        usdbalance={usdbalance}
-        setUsdbalance={setUsdbalance}
-        btcbalance={btcbalance}
-        setBtcbalance={setBtcbalance}
-        btcUsdRatio={btcUsdRatio}
-        setIsRunning={setIsRunning}
-        setBtcUsdRatio={setBtcUsdRatio}
-        term={term}
-      />
       <Upgrades
         usdbalance={usdbalance}
         setUsdbalance={setUsdbalance}

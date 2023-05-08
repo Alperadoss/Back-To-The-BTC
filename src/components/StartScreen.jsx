@@ -8,7 +8,11 @@ export default function StartScreen() {
       <img id="gamelogo" src={gamelogo} />
       <img id="deloreanlogo" src={delorean} />
       <a className="button" href="/intro">
-        start the game
+        <div id="text">
+          <h1>
+            <span id="offset">START THE GAME</span>
+          </h1>
+        </div>
       </a>
     </div>
   );

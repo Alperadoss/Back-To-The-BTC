@@ -14,15 +14,9 @@ export default function Intro() {
       setTimeout(() => {
         setText(text + fullText[index]);
         setIndex(index + 1);
-      }, 80);
+      }, 50);
     }
   }, [index]);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setShowBtn(true);
-    }, 30000);
-  });
 
   return (
     <div className="introScene">
@@ -30,14 +24,21 @@ export default function Intro() {
       <div className="textbox">
         <h2>2023.01.20</h2>
         <p>{text}</p>
-        <div>
-          {showBtn && (
-            <a className="button" href="/game">
-              GO TO 2012
-            </a>
-          )}
-        </div>
+        <a className="button" href="/game">
+          <div id="text">
+            <h1>
+              <span id="offset">GO TO 2012</span>
+            </h1>
+          </div>
+        </a>
       </div>
     </div>
   );
 }
+<a className="button" href="/intro">
+  <div id="text">
+    <h1>
+      <span id="offset">START THE GAME</span>
+    </h1>
+  </div>
+</a>;
